@@ -22,9 +22,6 @@ inettool.com is a **free, privacy-focused browser toolbox** offering 100% client
 2. Choose a tool from the list.
 3. Start using it — no sign-up, no installation.
 
-## 📷 Screenshots
-*(Add screenshots of key features here)*
-
 ## 📄 License
 This project is licensed under the MIT License.
 
