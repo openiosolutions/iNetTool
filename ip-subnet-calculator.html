@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Subnet Calculator - iNetTool</title>
+    <meta name="description" content="Free online IP subnet calculator for IPv4 addresses. Quickly calculate network address, broadcast address, host range, and subnet mask from an IP and CIDR.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+ <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=yE3pPeRC5e3wMjEQvO8RpJqPWE6sMwypETzprzBq8iMz9pDH-sjVkbSuqoRpBbY7ajvpjdXqjNXb4br3WFFUQj6jgUV-sN8hKWO_BENctcEzK5ns9PQHtEyT_zvyXwUNgAOjECaqG45qJEOFneRz93wiiosXRJGM_FbENLzyHnhyWZmb85vNOq1yPI38jQOdlJG6uqyfKSZ-a4CWgJfTrg" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZpcC1zdWJuZXQtY2FsY3VsYXRvci5odG1s"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="subnet-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">🧮 IP Subnet Calculator</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Enter an IPv4 address and a CIDR prefix to calculate subnet details.</p>
+                </div>
+
+                <div class="fade-in">
+                    <form id="subnet-form" class="tool-form">
+                        <input type="text" id="ip-input" class="tool-input" placeholder="IP Address (e.g., 192.168.1.1)" required>
+                        <input type="number" id="cidr-input" class="tool-input" placeholder="CIDR (e.g., 24)" min="0" max="32" required>
+                        <button type="submit" class="btn">Calculate</button>
+                    </form>
+                    <pre id="subnet-results" class="results-box mt-4"></pre>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">Understanding IP Subnetting</h3>
+                <p>IP subnetting is the process of dividing a single, large network into smaller, more manageable sub-networks, or "subnets." This is a fundamental concept in computer networking used to improve performance, security, and organization.</p>
+                
+                <h4 class="text-xl font-bold">What is CIDR Notation?</h4>
+                <p>CIDR (Classless Inter-Domain Routing) notation is a compact way to represent a range of IP addresses. It combines an IP address with a slash (`/`) followed by a number. This number (from 0 to 32) represents the number of leading bits in the network portion of the address.</p>
+                <ul>
+                    <li><strong>Example:</strong> `192.168.1.1/24`</li>
+                    <li>The `/24` means that the first 24 bits are the network part, and the remaining 8 bits are for host addresses.</li>
+                </ul>
+
+                <h4 class="text-xl font-bold">Key Terms in This Calculator</h4>
+                <ul>
+                    <li><strong>Network Address:</strong> The very first address in a subnet, which identifies the network itself. It cannot be assigned to a device.</li>
+                    <li><strong>Broadcast Address:</strong> The very last address in a subnet, used to send messages to all devices on that network simultaneously.</li>
+                    <li><strong>Host Range:</strong> The range of usable IP addresses that can be assigned to individual devices (computers, phones, etc.) within the subnet.</li>
+                    <li><strong>Subnet Mask:</strong> A 32-bit number that separates the network portion of an IP address from the host portion.</li>
+                </ul>
+                <p>This calculator is a handy tool for network administrators, students, and anyone studying for networking certifications like CCNA.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const subnetForm = document.getElementById('subnet-form');
+        if (!subnetForm) return;
+        const ipInput = document.getElementById('ip-input');
+        const cidrInput = document.getElementById('cidr-input');
+        const resultsBox = document.getElementById('subnet-results');
+        const ipToLong = (ip) => ip.split('.').reduce((acc, octet) => (acc << 8) + parseInt(octet, 10), 0) >>> 0;
+        const longToIp = (long) => [ (long >>> 24), (long >>> 16) & 255, (long >>> 8) & 255, long & 255 ].join('.');
+        subnetForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            try {
+                const ip = ipInput.value;
+                const cidr = parseInt(cidrInput.value, 10);
+                if (!/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(ip)) throw new Error("Invalid IPv4 address format.");
+                if (isNaN(cidr) || cidr < 0 || cidr > 32) throw new Error("CIDR prefix must be between 0 and 32.");
+                const ipLong = ipToLong(ip);
+                const maskLong = (-1 << (32 - cidr)) >>> 0;
+                const networkLong = (ipLong & maskLong) >>> 0;
+                const broadcastLong = (networkLong | ~maskLong) >>> 0;
+                const totalHosts = Math.pow(2, 32 - cidr);
+                const usableHosts = totalHosts > 2 ? totalHosts - 2 : 0;
+                const firstHostLong = usableHosts > 0 ? networkLong + 1 : networkLong;
+                const lastHostLong = usableHosts > 0 ? broadcastLong - 1 : broadcastLong;
+                resultsBox.textContent = `Subnet Details for ${ip}/${cidr}\n\nAddress:          ${ip}\nNetwork Address:  ${longToIp(networkLong)}\nBroadcast Address:${longToIp(broadcastLong)}\nSubnet Mask:      ${longToIp(maskLong)}\n\nHost Range:       ${longToIp(firstHostLong)} - ${longToIp(lastHostLong)}\nTotal Hosts:      ${totalHosts.toLocaleString()}\nUsable Hosts:     ${usableHosts.toLocaleString()}`;
+            } catch (e) {
+                resultsBox.textContent = `Error: ${e.message}`;
+            }
+        });
+    });
+    </script>
+</body>
+</html>

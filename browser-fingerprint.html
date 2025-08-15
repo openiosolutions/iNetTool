@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Fingerprint Test - iNetTool</title>
+    <meta name="description" content="See the unique data your browser shares with websites. Test your browser fingerprint to understand how you can be tracked online, even without cookies.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+    <!-- Google Analytics / Ads -->
+    <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=AdZaXSVZ3fJR9Wht9J6BbFndYgdZTkBvngk7aYAgjREDPfch6mPt7hbHGB4KojILpEjxKK14ct_hpqueIwKKy3CaxPz7YOZIWjr8lXAeHWrWXPuJ7FnG9i454XadIu676gTjXBFX-2VC3K14vHmt3qJNMyAR9TdDb7bA7MZopACX1XgFLlyB2XBjBphD6VcLt5zjs0aHNM1hBSK8SP1OkA" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZicm93c2VyLWZpbmdlcnByaW50Lmh0bWw"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="fingerprint-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">🛡️ Browser Fingerprint Test</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Websites can use this combination of information to create a unique identifier for your browser, even without cookies.</p>
+                </div>
+
+                <div class="fade-in">
+                    <table class="info-table">
+                        <tbody>
+                            <tr><th>User Agent String</th><td id="fp-user-agent" class="font-mono"></td></tr>
+                            <tr><th>Browser Vendor</th><td id="fp-vendor" class="font-mono"></td></tr>
+                            <tr><th>Platform</th><td id="fp-platform" class="font-mono"></td></tr>
+                            <tr><th>CPU Core Count</th><td id="fp-cores" class="font-mono"></td></tr>
+                            <tr><th>Device Memory (GB)</th><td id="fp-memory" class="font-mono"></td></tr>
+                            <tr><th>Browser Plugins</th><td id="fp-plugins" class="font-mono"></td></tr>
+                            <tr><th>Language(s)</th><td id="fp-languages" class="font-mono"></td></tr>
+                            <tr><th>Timezone</th><td id="fp-timezone" class="font-mono"></td></tr>
+                            <tr><th>Screen Resolution</th><td id="fp-screen-res" class="font-mono"></td></tr>
+                            <tr><th>Available Screen Size</th><td id="fp-avail-screen" class="font-mono"></td></tr>
+                            <tr><th>Color Depth</th><td id="fp-color-depth" class="font-mono"></td></tr>
+                            <tr><th>Cookies Enabled</th><td id="fp-cookies" class="font-mono"></td></tr>
+                            <tr><th>Do Not Track Header</th><td id="fp-dnt" class="font-mono"></td></tr>
+                            <tr><th>WebGL Vendor</th><td id="fp-webgl-vendor" class="font-mono"></td></tr>
+                            <tr><th>WebGL Renderer</th><td id="fp-webgl-renderer" class="font-mono"></td></tr>
+                            <tr><th>Canvas Fingerprint ID</th><td id="fp-canvas" class="font-mono"></td></tr>
+                            <tr><th>Audio Fingerprint ID</th><td id="fp-audio" class="font-mono"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">What is a Browser Fingerprint?</h3>
+                <p>A browser fingerprint is a collection of information about your device and browser that can be used to create a unique identifier for you. Even if you clear your cookies, this fingerprint can remain the same, allowing websites to track your activity across different sessions and even across different websites.</p>
+                
+                <h4 class="text-xl font-bold">How Does It Work?</h4>
+                <p>Websites can gather dozens of data points that your browser makes available, such as:</p>
+                <ul>
+                    <li><strong>User Agent:</strong> A string that identifies your browser, version, and operating system.</li>
+                    <li><strong>Fonts:</strong> The list of fonts installed on your system.</li>
+                    <li><strong>Plugins:</strong> The browser plugins you have installed.</li>
+                    <li><strong>Screen Resolution & Color Depth:</strong> The size and color capabilities of your screen.</li>
+                    <li><strong>Hardware Details:</strong> Information like your CPU core count and device memory.</li>
+                    <li><strong>Canvas & WebGL Fingerprinting:</strong> Advanced techniques that render hidden graphics and text to generate a unique hash based on your specific hardware and driver configuration.</li>
+                </ul>
+                <p>By combining these and other data points, a website can create a "fingerprint" that is highly unique to your device. This tool shows you some of the most common data points used in this process.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const simpleHash = (str) => {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return hash.toString(16);
+        };
+        const getCanvasFingerprint = () => {
+            try {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                const txt = 'BrowserScan_!?123-ABC';
+                ctx.textBaseline = "top";
+                ctx.font = "14px 'Arial'";
+                ctx.textBaseline = "alphabetic";
+                ctx.fillStyle = "#f60";
+                ctx.fillRect(125, 1, 62, 20);
+                ctx.fillStyle = "#069";
+                ctx.fillText(txt, 2, 15);
+                ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
+                ctx.fillText(txt, 4, 17);
+                return simpleHash(canvas.toDataURL());
+            } catch (e) { return 'Not Supported'; }
+        };
+        const getWebglInfo = () => {
+            try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                if (!gl) return { vendor: 'Not Supported', renderer: 'Not Supported' };
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                return {
+                    vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
+                    renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
+                };
+            } catch (e) { return { vendor: 'Error', renderer: 'Error' }; }
+        };
+        const getAudioFingerprint = () => {
+            return new Promise(resolve => {
+                try {
+                    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    const timeoutId = setTimeout(() => {
+                        if (audioCtx.state !== 'closed') audioCtx.close();
+                        resolve('Timeout or Not Supported');
+                    }, 500);
+                    const oscillator = audioCtx.createOscillator();
+                    const analyser = audioCtx.createAnalyser();
+                    const gain = audioCtx.createGain();
+                    const scriptProcessor = audioCtx.createScriptProcessor(4096, 1, 1);
+                    gain.gain.value = 0;
+                    oscillator.type = 'triangle';
+                    oscillator.connect(analyser);
+                    analyser.connect(scriptProcessor);
+                    scriptProcessor.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    scriptProcessor.onaudioprocess = (event) => {
+                        const inputData = event.inputBuffer.getChannelData(0);
+                        const hash = simpleHash(Array.from(inputData).toString());
+                        clearTimeout(timeoutId);
+                        oscillator.disconnect();
+                        scriptProcessor.disconnect();
+                        gain.disconnect();
+                        audioCtx.close();
+                        resolve(hash);
+                    };
+                    oscillator.start(0);
+                } catch (e) { resolve('Not Supported'); }
+            });
+        };
+        document.getElementById('fp-user-agent').textContent = navigator.userAgent || 'N/A';
+        document.getElementById('fp-vendor').textContent = navigator.vendor || 'N/A';
+        document.getElementById('fp-platform').textContent = navigator.platform || 'N/A';
+        document.getElementById('fp-cores').textContent = navigator.hardwareConcurrency || 'N/A';
+        document.getElementById('fp-memory').textContent = navigator.deviceMemory ? `${navigator.deviceMemory} GB` : 'N/A';
+        document.getElementById('fp-plugins').textContent = Array.from(navigator.plugins).map(p => p.name).join(', ') || 'No plugins reported';
+        document.getElementById('fp-languages').textContent = navigator.languages.join(', ');
+        document.getElementById('fp-timezone').textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        document.getElementById('fp-screen-res').textContent = `${screen.width} x ${screen.height}`;
+        document.getElementById('fp-avail-screen').textContent = `${screen.availWidth} x ${screen.availHeight}`;
+        document.getElementById('fp-color-depth').textContent = screen.colorDepth;
+        document.getElementById('fp-cookies').textContent = navigator.cookieEnabled ? 'Enabled' : 'Disabled';
+        document.getElementById('fp-dnt').textContent = navigator.doNotTrack || 'Not specified';
+        document.getElementById('fp-canvas').textContent = getCanvasFingerprint();
+        const webglInfo = getWebglInfo();
+        document.getElementById('fp-webgl-vendor').textContent = webglInfo.vendor;
+        document.getElementById('fp-webgl-renderer').textContent = webglInfo.renderer;
+        getAudioFingerprint().then(audioHash => {
+            document.getElementById('fp-audio').textContent = audioHash;
+        });
+    });
+    </script>
+</body>
+</html>

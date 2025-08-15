@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free QR Code Generator - iNetTool</title>
+    <meta name="description" content="Instantly generate a free QR code from any text or URL. Download as a high-quality PNG. Works entirely in your browser to protect your privacy.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+  <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=D1CXqgZuroisnRg0LUZxVbHQ9mnbqdzYNNkmuRZwlaHpZfSvDwzwhYY9hzsLhljo7p0_GilNyuUJrOm0nHBM_Bo-hcWCcpOGDexc_MQ4dpXpDhU2DCQn6ZsZ1YqiKf7Poj-lUo4EQAAORumx602fr4wAlAGuH868_zSCLwsy3pvYcrswYuzetjpxnXPIMb1p_JgB5leIfyu9WRLD9uZwYg" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZxci1jb2RlLWdlbmVyYXRvci5odG1s"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+    
+    <!-- Tailwind CSS & JS Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="qr-code-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">📱 QR Code Generator</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Enter any text or URL below to generate a QR code instantly.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="fade-in">
+                        <label for="qr-input" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Text or URL</label>
+                        <textarea id="qr-input" class="w-full h-40 p-3 tool-input" placeholder="e.g., https://inettool.com/"></textarea>
+                    </div>
+                    <div class="text-center fade-in">
+                        <div class="p-4 bg-white rounded-lg inline-block shadow-md">
+                             <canvas id="qr-canvas"></canvas>
+                        </div>
+                        <div class="mt-4">
+                            <a id="qr-download" class="btn" style="display: none;">Download as PNG</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">What is a QR Code?</h3>
+                <p>A QR (Quick Response) code is a type of two-dimensional barcode that can store various kinds of information, such as text, URLs, contact details, and more. It can be easily scanned using a smartphone camera, providing a quick and convenient way to access digital information in the physical world.</p>
+                
+                <h4 class="text-xl font-bold">Common Uses for QR Codes</h4>
+                <ul>
+                    <li><strong>Website Links:</strong> Direct users to your website, a specific landing page, or your social media profile.</li>
+                    <li><strong>Wi-Fi Access:</strong> Store your Wi-Fi network name and password, allowing guests to connect automatically by scanning the code.</li>
+                    <li><strong>Contact Information:</strong> Create a digital business card (vCard) that users can scan to instantly save your contact details.</li>
+                    <li><strong>Event Information:</strong> Link to event details, maps, or registration pages.</li>
+                    <li><strong>Menus and Payments:</strong> Commonly used in restaurants for contactless menus and payment processing.</li>
+                </ul>
+
+                <h4 class="text-xl font-bold">Why Use Our Generator?</h4>
+                <p>This QR code generator is a client-side tool, which means it works entirely within your web browser. When you enter text or a URL, it is not sent to a server. Your browser does all the work, ensuring your data remains completely private and secure.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const view = document.getElementById('qr-code-app');
+        if (!view) return;
+
+        const input = view.querySelector('#qr-input');
+        const canvas = view.querySelector('#qr-canvas');
+        const downloadBtn = view.querySelector('#qr-download');
+
+        const generateQrCode = () => {
+            const text = input.value.trim();
+            if (text) {
+                QRCode.toCanvas(canvas, text, { width: 256, margin: 2 }, (error) => {
+                    if (error) console.error(error);
+                    downloadBtn.style.display = 'inline-block';
+                });
+            } else {
+                // Clear the canvas if there is no text
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                downloadBtn.style.display = 'none';
+            }
+        };
+
+        input.addEventListener('input', generateQrCode);
+
+        downloadBtn.addEventListener('click', () => {
+            downloadBtn.href = canvas.toDataURL('image/png');
+            downloadBtn.download = 'qrcode.png';
+        });
+    });
+    </script>
+</body>
+</html>

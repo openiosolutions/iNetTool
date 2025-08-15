@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word to PDF Converter - iNetTool</title>
+    <meta name="description" content="Easily convert your Word documents (.docx) to PDF files online for free. Secure, client-side conversion with no uploads.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+    <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=0YYjnAn7keyFOtp5icutrTdmZJ5l83STgnDWVVIprG7sZ1T6y2jZAY0fccCQ6obx3kUKlfBtWKmfkz8RvvdiFuhI8TNPftCSHiNgDARQhVqx1M19UiNkort3Z772pKvlhHWE6fk4pPmzGGmCSKQDBFVZeepiVLO5HxMwqubsCsWtUgTRAZp795G70ybR2jhkZ4F7LPHdooC1r_aK37bVVA" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZ3b3JkLXRvLXBkZi1jb252ZXJ0ZXIuaHRtbA"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Tailwind CSS & JS Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="file-converter-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">🔄 Word to PDF Converter</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Upload a .docx file to convert it into a PDF document entirely in your browser.</p>
+                </div>
+
+                <div class="fade-in">
+                    <input type="file" id="docx-file" accept=".docx" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 my-4"/>
+                    <div id="docx-preview" class="preview-area">Upload a .docx file to see the preview.</div>
+                    <button id="docx-convert-btn" class="mt-4 btn w-full" disabled>Convert to PDF</button>
+                    <p id="docx-error" class="text-red-500 mt-2"></p>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">Why Convert Word to PDF?</h3>
+                <p>Converting a Microsoft Word (.docx) document to a PDF (Portable Document Format) is a common and essential task for students, professionals, and anyone who needs to share documents. Here are the main advantages of using the PDF format:</p>
+                <ul>
+                    <li><strong>Universal Compatibility:</strong> PDF files can be opened and viewed on virtually any device and operating system (Windows, macOS, Android, iOS) without needing Microsoft Word. The document will look the same everywhere.</li>
+                    <li><strong>Preserve Formatting:</strong> PDFs lock in the formatting of your document. This means that your fonts, images, and layout will remain exactly as you intended, no matter who opens the file or on what device.</li>
+                    <li><strong>Security:</strong> PDF files can be encrypted and password-protected, offering a secure way to share sensitive information.</li>
+                    <li><strong>Print-Ready:</strong> The PDF format is the standard for professional printing, ensuring that your document will be printed accurately.</li>
+                </ul>
+
+                <h4 class="text-xl font-bold">A Secure, Client-Side Tool</h4>
+                <p>This Word to PDF converter operates entirely within your browser. Your .docx file is never uploaded to a server, ensuring your data and documents remain completely private and secure on your computer. The conversion is handled locally, providing a fast and safe experience.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const docxFileInput = document.getElementById('docx-file');
+        const docxPreview = document.getElementById('docx-preview');
+        const docxConvertBtn = document.getElementById('docx-convert-btn');
+        const docxError = document.getElementById('docx-error');
+
+        if (!docxFileInput) return;
+
+        docxFileInput.addEventListener('change', (event) => {
+            docxError.textContent = '';
+            docxConvertBtn.disabled = true;
+            docxPreview.innerHTML = 'Processing file...';
+
+            const file = event.target.files[0];
+            if (!file || !file.name.endsWith('.docx')) {
+                docxError.textContent = 'Please upload a valid .docx file.';
+                docxPreview.innerHTML = 'Upload a .docx file to see the preview.';
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                const arrayBuffer = e.target.result;
+                mammoth.convertToHtml({ arrayBuffer: arrayBuffer })
+                    .then(result => {
+                        if (result.value) {
+                            docxPreview.innerHTML = result.value;
+                            docxConvertBtn.disabled = false;
+                        } else {
+                            docxError.textContent = 'Could not extract content from the document.';
+                            docxPreview.innerHTML = 'Preview is not available for this file.';
+                        }
+                    })
+                    .catch(err => {
+                        docxError.textContent = 'An error occurred while converting the document.';
+                        docxPreview.innerHTML = 'Preview failed.';
+                        console.error('Mammoth.js error:', err);
+                    });
+            };
+
+            reader.onerror = () => {
+                docxError.textContent = 'There was an error reading the file.';
+                docxPreview.innerHTML = 'Could not read file.';
+            };
+
+            reader.readAsArrayBuffer(file);
+        });
+
+        docxConvertBtn.addEventListener('click', () => {
+            const element = docxPreview;
+            const originalStyle = {
+                maxHeight: element.style.maxHeight,
+                overflowY: element.style.overflowY
+            };
+            element.style.maxHeight = 'none';
+            element.style.overflowY = 'visible';
+
+            const opt = {
+                margin:       1,
+                filename:     'converted.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, scrollY: 0 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' },
+                pagebreak:    { mode: ['css', 'legacy'] }
+            };
+
+            html2pdf().from(element).set(opt).save().then(() => {
+                element.style.maxHeight = originalStyle.maxHeight;
+                element.style.overflowY = originalStyle.overflowY;
+            });
+        });
+    });
+    </script>
+</body>
+</html>

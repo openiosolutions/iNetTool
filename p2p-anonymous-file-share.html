@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TPP8rVKt_-Bsn6_ZTg-DTCTfV9AAXp-s7eDd1Le1x0IRsIpHCfW3SL7lxUeQheVWM8aweba-fYaEKGoOmqEpfA7aiuTiri9JvGziD-dt6Pb0jhz77z5HJMXseuj2mZNSput0JDo8w1z1j6eYoAf_C0Mzhkzn9s8HhjCDRUNtxk6sshY8yEMBZ4OaeYaD0_t8RwRsTRK96EYLqCzjRoQMNQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZwMnAtYW5vbnltb3VzLWZpbGUtc2hhcmUuaHRtbA"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+    <title>Secure P2P File Share - Private, Encrypted, Link-Based Transfer</title>
+    <meta name="description" content="Share files directly with anyone using a secure, private, end-to-end encrypted P2P connection. No uploads, no sign-ups, no server storage. As simple and private as OnionShare, on the web.">
+    <meta name="keywords" content="p2p file share, secure file transfer, encrypted file sharing, private file sharing, onionshare alternative, peer-to-peer, no server upload, direct file transfer, self-destructing files">
+    
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Simple state management */
+        .state { display: none; }
+        .active-state { display: block; }
+        
+        /* Custom styles for a better look */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #3b82f6; /* bg-blue-600 */
+            color: white;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-align: center;
+            border: none;
+        }
+        .btn:hover { background-color: #2563eb; } /* hover:bg-blue-700 */
+        .btn:disabled { background-color: #9ca3af; cursor: not-allowed; } /* bg-gray-400 */
+
+        .input-like {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            background-color: #f3f4f6; /* bg-gray-100 */
+            border: 1px solid #d1d5db; /* border-gray-300 */
+            border-radius: 0.375rem;
+            font-family: monospace;
+            color: #1f2937; /* text-gray-800 */
+        }
+        
+        /* Progress Bar */
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e5e7eb; /* bg-gray-200 */
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 1.5rem;
+            width: 0%;
+            background-color: #3b82f6; /* bg-blue-600 */
+            transition: width 0.2s ease-in-out;
+            text-align: center;
+            line-height: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 p-4 md:p-8">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="max-w-xl w-full mx-auto">
+          <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-2xl">
+            <div class="mb-6 text-center">
+                <h1 class="text-3xl font-bold text-blue-600 dark:text-blue-400">🔗 Link-Based P2P Share</h1>
+                <p class="text-gray-500 dark:text-gray-400 mt-1">The privacy of P2P, the simplicity of a link.</p>
+            </div>
+
+            <div id="app-container">
+
+                <div id="state-initial" class="state active-state space-y-4">
+                    <h3 class="text-xl font-semibold text-center">1. Select a File</h3>
+                    <div class="relative border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center">
+                        <p class="text-gray-500 dark:text-gray-400">Click or drag file here.</p>
+                        <input type="file" id="file-input" class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer">
+                    </div>
+                    <p id="file-name-display" class="text-center text-gray-600 dark:text-gray-400"></p>
+                    
+                    <h3 class="text-xl font-semibold text-center pt-4">2. Link Persistence</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center p-3 rounded-lg bg-gray-100 dark:bg-gray-700">
+                            <input type="radio" name="destruct-option" value="none" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500" checked>
+                            <span class="ml-3 text-gray-700 dark:text-gray-200">Link active until page is closed</span>
+                        </label>
+                    </div>
+
+                    <button id="start-hosting-btn" class="btn w-full !mt-6" disabled>Generate Secure Link</button>
+                </div>
+
+                <div id="state-hosting" class="state space-y-4">
+                    <h3 class="text-xl font-semibold text-center">Your Secure Link is Ready!</h3>
+                    <p class="text-center text-gray-500">Send this link to the person you want to share the file with. The transfer will begin when they open it.</p>
+                    <div class="input-like" id="share-link"></div>
+                    <button id="copy-link-btn" class="btn w-full">Copy Link</button>
+                    <p id="hosting-status" class="text-center font-medium text-blue-500">Waiting for receiver...</p>
+                </div>
+
+                <div id="state-receiving" class="state text-center space-y-4">
+                    <h3 class="text-xl font-semibold">Receiving a File</h3>
+                    <div id="receiver-connecting-indicator">
+                        <p class="font-medium text-blue-500">Establishing secure connection to sender...</p>
+                        <div class="w-16 h-16 border-4 border-dashed border-blue-500 rounded-full animate-spin mx-auto mt-4"></div>
+                    </div>
+                    <div id="receiver-error-indicator" class="hidden">
+                         <p class="font-medium text-red-500">Host disconnected or link has expired. Please ask them to generate a new link.</p>
+                    </div>
+                </div>
+
+                <div id="state-transfer" class="state space-y-4">
+                    <h3 id="transfer-file-name" class="text-xl font-semibold text-center"></h3>
+                    <p id="transfer-status" class="text-center font-medium"></p>
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar">0%</div>
+                    </div>
+                    <div id="download-link-container" class="text-center"></div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="mt-8 bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-xl">
+            <h2 class="text-2xl font-bold text-center">How to Use</h2>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-600 dark:text-gray-300">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                        To Send a File
+                    </h3>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li>Click the box to select a file.</li>
+                        <li>Click "Generate Secure Link".</li>
+                        <li>Copy and send the link to your friend.</li>
+                        <li>Keep this page open until the transfer is complete.</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        To Receive a File
+                    </h3>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li>Open the link you received from the sender.</li>
+                        <li>Wait for the connection to be established.</li>
+                        <li>The transfer will start automatically.</li>
+                        <li>Click "Download" when it appears.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-xl">
+            <h2 class="text-2xl font-bold text-center">A Deeper Dive into Your Security & Privacy</h2>
+            <div class="mt-6 space-y-6 text-gray-600 dark:text-gray-300">
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-2">1. The Encrypted Tunnel (DTLS)</h3>
+                    <p class="mb-2">Before any data is sent, your web browser and the receiver's web browser perform a "secret handshake." This process uses an industry-standard security protocol called **DTLS (Datagram Transport Layer Security)**. The file's name, its size, and every single piece of the file itself are scrambled before they leave your computer and are only unscrambled when they safely arrive in the receiver's browser.</p>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">The Bottom Line: No one in the middle can read your file. Not your Internet Service Provider (ISP), not someone on the same Wi-Fi network, and not the owner of this website.</p>
+                </div>
+
+                <hr class="border-gray-200 dark:border-gray-700">
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2">2. The Direct Connection: Why "No Server" Matters</h3>
+                    <p class="mb-2">This tool is **Truly Peer-to-Peer (P2P)**. Instead of uploading your file to a central server, it's sent directly from your browser to the receiver's browser. A "matchmaking" service simply introduces your two browsers and is not involved in the file transfer itself.</p>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">The Bottom Line: Your file travels the shortest, most direct path possible. It is never stored on a third-party computer, which is the ultimate guarantee of privacy.</p>
+                </div>
+
+                <hr class="border-gray-200 dark:border-gray-700">
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2">3. Understanding Your Anonymity</h3>
+                    <p class="mb-2">It's important to distinguish between **privacy** (the *content* of your file is protected) and **anonymity** (your *identity* is hidden). To create a direct connection, your IP address must be visible to the person you are sharing with. However, because there is no central server, there is no third-party record linking you, the receiver, and the file you shared. The transaction happens, and then it's gone.</p>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">The Bottom Line: Think of it as a private conversation in a private room. The two of you know who you're talking to, but no one outside can listen in or knows what you talked about afterward.</p>
+                </div>
+
+                <hr class="border-gray-200 dark:border-gray-700">
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2">4. Zero Admin Access (Disclaimer)</h3>
+                    <p class="mb-2">Because this tool establishes a direct Peer-to-Peer (P2P) connection, your files are **never** uploaded to, stored on, or accessible by our servers. The 'admin' or owner of this website has zero access to your data.</p>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">The Bottom Line: The entire transfer happens directly between you and the receiver. Your files are your business, not ours.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- DOM Elements ---
+        const fileInput = document.getElementById('file-input');
+        const fileNameDisplay = document.getElementById('file-name-display');
+        const startHostingBtn = document.getElementById('start-hosting-btn');
+        const shareLinkEl = document.getElementById('share-link');
+        const copyLinkBtn = document.getElementById('copy-link-btn');
+        const hostingStatus = document.getElementById('hosting-status');
+        const receiverConnectingIndicator = document.getElementById('receiver-connecting-indicator');
+        const receiverErrorIndicator = document.getElementById('receiver-error-indicator');
+        const transferFileName = document.getElementById('transfer-file-name');
+        const transferStatus = document.getElementById('transfer-status');
+        const progressBar = document.getElementById('progress-bar');
+        const downloadLinkContainer = document.getElementById('download-link-container');
+
+        // --- State Management ---
+        const states = {
+            initial: document.getElementById('state-initial'),
+            hosting: document.getElementById('state-hosting'),
+            receiving: document.getElementById('state-receiving'),
+            transfer: document.getElementById('state-transfer'),
+        };
+
+        function showState(stateName) {
+            Object.values(states).forEach(state => state.classList.remove('active-state'));
+            if (states[stateName]) {
+                states[stateName].classList.add('active-state');
+            }
+        }
+
+        // --- Globals ---
+        let peer;
+        let connection;
+        let fileToSend;
+        let receivedBuffers = [];
+        let receivedSize = 0;
+        let fileMetadata = null;
+        const CHUNK_SIZE = 16384; // 16KB
+
+        // --- Core Logic ---
+        function initialize() {
+            const peerId = window.location.hash.substring(1);
+            if (peerId) {
+                initializeReceiver(peerId);
+            } else {
+                initializeSender();
+            }
+        }
+
+        function destroyPeer() {
+            if (peer) {
+                peer.disconnect();
+                peer.destroy();
+            }
+            hostingStatus.textContent = 'Link has been destroyed.';
+            hostingStatus.classList.remove('text-blue-500');
+            hostingStatus.classList.add('text-red-500');
+        }
+
+        // ==================================================================
+        // SENDER / HOST LOGIC
+        // ==================================================================
+        function initializeSender() {
+            showState('initial');
+
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files.length > 0) {
+                    fileToSend = fileInput.files[0];
+                    fileNameDisplay.textContent = `Selected: ${fileToSend.name}`;
+                    startHostingBtn.disabled = false;
+                } else {
+                    fileNameDisplay.textContent = '';
+                    startHostingBtn.disabled = true;
+                }
+            });
+
+            startHostingBtn.addEventListener('click', () => {
+                peer = new Peer({ secure: true });
+
+                peer.on('open', (id) => {
+                    const url = `${window.location.href.split('#')[0]}#${id}`;
+                    shareLinkEl.textContent = url;
+                    showState('hosting');
+                    hostingStatus.textContent = 'Waiting for receiver...';
+                });
+
+                peer.on('connection', (conn) => {
+                    connection = conn;
+                    hostingStatus.textContent = 'Receiver connected! Preparing to send...';
+                    
+                    conn.on('open', () => {
+                        showState('transfer');
+                        fileMetadata = { name: fileToSend.name, size: fileToSend.size, type: fileToSend.type };
+                        transferFileName.textContent = `Sending: ${fileMetadata.name}`;
+                        conn.send({ type: 'metadata', payload: fileMetadata });
+                    });
+
+                    conn.on('data', (data) => {
+                        if (data.type === 'ready') {
+                            transferStatus.textContent = 'Sending file...';
+                            const reader = new FileReader();
+                            let offset = 0;
+
+                            reader.onload = e => {
+                                conn.send(e.target.result);
+                                offset += e.target.result.byteLength;
+                                updateProgress(offset, fileToSend.size);
+                                if (offset < fileToSend.size) {
+                                    readChunk();
+                                } else {
+                                    transferStatus.textContent = 'File sent successfully!';
+                                }
+                            };
+                            
+                            const readChunk = () => {
+                                const slice = fileToSend.slice(offset, offset + CHUNK_SIZE);
+                                reader.readAsArrayBuffer(slice);
+                            };
+                            
+                            readChunk();
+                        }
+                    });
+
+                    conn.on('close', () => {
+                        transferStatus.textContent = 'Connection closed.';
+                    });
+                });
+                
+                peer.on('error', (err) => {
+                    alert(`An error occurred: ${err.message}. Please refresh and try again.`);
+                    console.error(err);
+                });
+            });
+
+            copyLinkBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(shareLinkEl.textContent).then(() => {
+                    copyLinkBtn.textContent = 'Copied!';
+                    setTimeout(() => { copyLinkBtn.textContent = 'Copy Link'; }, 2000);
+                });
+            });
+        }
+
+        // ==================================================================
+        // RECEIVER LOGIC
+        // ==================================================================
+        function initializeReceiver(peerId) {
+            showState('receiving');
+            peer = new Peer({ secure: true });
+
+            peer.on('open', () => {
+                connection = peer.connect(peerId, { reliable: true });
+                connection.on('open', () => {
+                    // Waiting for metadata
+                });
+                handleConnectionEvents(connection);
+            });
+            
+            peer.on('error', (err) => {
+                 if (err.type === 'peer-unavailable') {
+                    receiverConnectingIndicator.classList.add('hidden');
+                    receiverErrorIndicator.classList.remove('hidden');
+                 } else {
+                    alert(`An error occurred: ${err.message}. Please refresh and try again.`);
+                 }
+                console.error(err);
+            });
+        }
+
+        // ==================================================================
+        // SHARED CONNECTION & TRANSFER LOGIC (RECEIVER'S SIDE)
+        // ==================================================================
+        function handleConnectionEvents(conn) {
+            conn.on('data', (data) => {
+                if (data.type === 'metadata') {
+                    fileMetadata = data.payload;
+                    showState('transfer');
+                    transferFileName.textContent = `Receiving: ${fileMetadata.name}`;
+                    transferStatus.textContent = 'Preparing to receive...';
+                    conn.send({ type: 'ready' });
+                } else { 
+                    receivedBuffers.push(data);
+                    receivedSize += data.byteLength;
+                    updateProgress(receivedSize, fileMetadata.size);
+
+                    if (receivedSize >= fileMetadata.size) {
+                        transferStatus.textContent = 'Download complete!';
+                        const blob = new Blob(receivedBuffers, { type: fileMetadata.type });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = fileMetadata.name;
+                        a.textContent = `Download "${fileMetadata.name}"`;
+                        a.classList.add('btn');
+                        downloadLinkContainer.innerHTML = '';
+                        downloadLinkContainer.appendChild(a);
+                    }
+                }
+            });
+
+            conn.on('close', () => {
+                const isTransferComplete = fileMetadata && receivedSize > 0 && receivedSize >= fileMetadata.size;
+                if (!isTransferComplete) {
+                    transferStatus.textContent = 'Host disconnected. Please ask for a new link to restart the transfer.';
+                    progressBar.style.backgroundColor = '#ef4444'; // bg-red-500
+                } else {
+                    transferStatus.textContent = 'Connection closed.';
+                }
+            });
+        }
+        
+        function updateProgress(sent, total) {
+            const percent = total > 0 ? Math.floor((sent / total) * 100) : 100;
+            progressBar.style.width = `${percent}%`;
+            progressBar.textContent = `${percent}%`;
+        }
+
+        // --- Start the app ---
+        initialize();
+    });
+    </script>

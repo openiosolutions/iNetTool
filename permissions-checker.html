@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Permissions Checker - iNetTool</title>
+    <meta name="description" content="Check the status of browser permissions for this website, including Geolocation, Camera, Microphone, and Notifications.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+   <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TPP8rVKt_-Bsn6_ZTg-DTGPxmatRCQIcgvVZ_M-nme-p-HWGPl9NyfLnQLpTEBaYKJqb6K9KP4dsdPOmBZSqmZHb69lNjDXmXEzBbRj4Y5njdTrazNBO2j68mzQlLRhOG5HrjXBtzkRvYeOUCi11a760MPJgJmtGFXU7zKxjOklaxufTUibolyj-3YkoQ0sIgelvwiEXl3T7OBfIn0t05g" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZwZXJtaXNzaW9ucy1jaGVja2VyLmh0bWw"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+    
+    <!-- Tailwind CSS & JS Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="permissions-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">🔑 Browser Permissions</h2>
+                        <p class="text-gray-500 dark:text-gray-400 mt-1">Check the current status of various browser permissions.</p>
+                    </div>
+                    <button id="refresh-permissions" class="btn mt-4 sm:mt-0">Refresh</button>
+                </div>
+
+                <div class="fade-in">
+                    <ul id="permissions-list" class="mt-4 space-y-3">
+                        <!-- Permissions will be dynamically added here -->
+                    </ul>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">Understanding Browser Permissions</h3>
+                <p>Modern web browsers have a powerful permissions system to protect your privacy and security. Websites must ask for your consent before they can access sensitive features like your location, camera, or microphone. This tool helps you see the current status of these permissions for this website.</p>
+                
+                <h4 class="text-xl font-bold">Permission States</h4>
+                <ul>
+                    <li><strong class="text-green-600 dark:text-green-400">Granted:</strong> You have given the website permission to use this feature.</li>
+                    <li><strong class="text-red-600 dark:text-red-400">Denied:</strong> You have blocked the website from using this feature.</li>
+                    <li><strong class="text-yellow-600 dark:text-yellow-400">Prompt:</strong> The website has not yet asked for permission, or you have dismissed a previous request. It will ask again when it needs to use the feature.</li>
+                </ul>
+
+                <h4 class="text-xl font-bold">Common Permissions Checked</h4>
+                <ul>
+                    <li><strong>Geolocation:</strong> Allows a site to access your physical location, typically via GPS or Wi-Fi data.</li>
+                    <li><strong>Camera:</strong> Grants access to your device's camera for video calls or taking pictures.</li>
+                    <li><strong>Microphone:</strong> Grants access to your device's microphone for voice calls or audio recording.</li>
+                    <li><strong>Notifications:</strong> Allows a site to send you push notifications, even when you're not actively on the page.</li>
+                    <li><strong>Clipboard:</strong> Lets a site read from or write to your system's clipboard (copy and paste).</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const view = document.getElementById('permissions-app');
+        if (!view) return;
+
+        const permissionsList = document.getElementById('permissions-list');
+        const refreshBtn = document.getElementById('refresh-permissions');
+
+        const permissionsToCheck = [
+            'geolocation',
+            'notifications',
+            'camera',
+            'microphone',
+            'clipboard-read',
+            'clipboard-write'
+        ];
+
+        const checkPermissions = async () => {
+            permissionsList.innerHTML = '<li>Checking permissions...</li>';
+            const results = [];
+
+            for (const name of permissionsToCheck) {
+                try {
+                    const status = await navigator.permissions.query({ name });
+                    results.push({ name, state: status.state });
+                } catch (e) {
+                    results.push({ name, state: 'unsupported' });
+                }
+            }
+            
+            permissionsList.innerHTML = ''; // Clear loading message
+
+            results.forEach(({ name, state }) => {
+                const li = document.createElement('li');
+                let icon = '';
+                let statusText = state.charAt(0).toUpperCase() + state.slice(1);
+
+                if (state === 'granted') {
+                    icon = '✅';
+                    li.className = 'status-good';
+                } else if (state === 'denied') {
+                    icon = '❌';
+                    li.className = 'status-bad';
+                } else if (state === 'prompt') {
+                    icon = '❓';
+                    li.className = 'status-warn';
+                } else {
+                    icon = '⚠️';
+                     statusText = 'Unsupported';
+                }
+                
+                li.innerHTML = `<span class="font-bold">${name}:</span> ${icon} ${statusText}`;
+                permissionsList.appendChild(li);
+            });
+        };
+        
+        // Run on page load and on refresh button click
+        checkPermissions();
+        refreshBtn.addEventListener('click', checkPermissions);
+    });
+    </script>
+</body>
+</html>

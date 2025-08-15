@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to CSV Converter - iNetTool</title>
+    <meta name="description" content="Free online tool to convert JSON arrays to CSV files. Paste your JSON data and instantly get clean, downloadable CSV right in your browser.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+  <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=yE3pPeRC5e3wMjEQvO8RpF3KAE-AX43O-e2avxhekQedU7hZAH1tEy6iD3zcyYuhu8ZJVVKiH2sqrI7RXB1ipr0S1rl8065GFOPANyoLjtbUBSKE7LqSOBsnAuCQ094T_PLE0LLFhSkwUgeqSqdip7cVWKJj72DgWBAVH8pAF-5W-u4FhqWzBaxgoDLFDHQ9dSQkCewzf3mCPBCn9LQGKQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZqc29uLXRvLWNzdi1jb252ZXJ0ZXIuaHRtbA"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="json-csv-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">📊 JSON to CSV Converter</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Paste your JSON array of objects below to convert it to CSV.</p>
+                </div>
+
+                <div class="fade-in">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="json-input" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">JSON Input</label>
+                            <textarea id="json-input" class="w-full h-64 p-3 tool-input" placeholder='[{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]'></textarea>
+                        </div>
+                        <div>
+                            <label for="csv-output" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">CSV Output</label>
+                            <textarea id="csv-output" readonly class="w-full h-64 p-3 tool-input bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white" placeholder="Your CSV will appear here..."></textarea>
+                        </div>
+                    </div>
+                    <button id="json-convert-btn" class="btn mt-4 w-full">Convert to CSV</button>
+                    <p id="json-csv-error" class="text-red-500 mt-2"></p>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">What is JSON and CSV?</h3>
+                <p>JSON (JavaScript Object Notation) and CSV (Comma-Separated Values) are two of the most common formats for storing and exchanging data.</p>
+                <ul>
+                    <li><strong>JSON:</strong> A lightweight format that is easy for humans to read and write, and easy for machines to parse and generate. It's often used in web applications for sending data from a server to a client. It uses a key-value pair structure.</li>
+                    <li><strong>CSV:</strong> A simple text format where values are separated by commas. It represents tabular data and is widely supported by spreadsheet programs like Microsoft Excel and Google Sheets.</li>
+                </ul>
+
+                <h4 class="text-xl font-bold">Why Convert from JSON to CSV?</h4>
+                <p>While JSON is great for web development, CSV is often preferred for data analysis, reporting, and business intelligence. Common reasons to convert include:</p>
+                <ul>
+                    <li><strong>Data Analysis:</strong> Opening data in a spreadsheet program to perform calculations, create charts, or sort and filter information.</li>
+                    <li><strong>Database Imports:</strong> Many database systems and data warehousing tools have simple, built-in importers for the CSV format.</li>
+                    <li><strong>Sharing with Non-Developers:</strong> CSV is a much more accessible format for business users, analysts, and anyone who is comfortable with spreadsheets.</li>
+                </ul>
+                <p>This tool works entirely in your browser, ensuring that your sensitive data is never uploaded to a server, providing a secure and private conversion experience.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const view = document.getElementById('json-csv-app');
+        if (!view) return;
+
+        const convertBtn = view.querySelector('#json-convert-btn');
+        const jsonInput = view.querySelector('#json-input');
+        const csvOutput = view.querySelector('#csv-output');
+        const errorEl = view.querySelector('#json-csv-error');
+
+        convertBtn.addEventListener('click', () => {
+            errorEl.textContent = '';
+            csvOutput.value = '';
+            try {
+                const jsonData = JSON.parse(jsonInput.value);
+                if (!Array.isArray(jsonData) || jsonData.length === 0) {
+                    throw new Error('Input must be a non-empty array of objects.');
+                }
+                const headers = Object.keys(jsonData[0]);
+                let csv = headers.join(',') + '\n';
+                jsonData.forEach(row => {
+                    const values = headers.map(header => {
+                        let val = row[header] === null || row[header] === undefined ? '' : String(row[header]);
+                        if (val.includes('"') || val.includes(',')) {
+                            val = `"${val.replace(/"/g, '""')}"`;
+                        }
+                        return val;
+                    }).join(',');
+                    csv += values + '\n';
+                });
+                csvOutput.value = csv;
+            } catch (err) {
+                errorEl.textContent = `Error: ${err.message}`;
+            }
+        });
+    });
+    </script>
+</body>
+</html>

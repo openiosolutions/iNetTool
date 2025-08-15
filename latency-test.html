@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latency Test (Ping) - iNetTool</title>
+    <meta name="description" content="Estimate the network latency (ping) from your browser to any domain or IP address. A simple, client-side ping utility.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+   <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=yE3pPeRC5e3wMjEQvO8RpKv6slennTLrVppEtSElmD3KX7EvrR_pTlBNHIboxbc_q3FUdaB-E-jEFt_jDQ70L1SmOJU6hZVn7kgfUDeVF3gkUrPW6jWyLXTh5di9cfbwCuCiSEjTcrmS0qAzchA70FjtKN4g0wrddiCHfH_ZSubq46IMvCK8R2liq6lW1RsiDt_Q6Yp48nYDeotgroASwg" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZsYXRlbmN5LXRlc3QuaHRtbA"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="ping-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">⏱️ Latency Test (Ping)</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Enter a domain or IP address to estimate the network latency from your browser.</p>
+                </div>
+
+                <div class="fade-in">
+                    <form id="ping-form" class="tool-form">
+                        <input type="text" id="ping-host" class="tool-input" placeholder="e.g., google.com" required>
+                        <button type="submit" class="btn">Ping</button>
+                    </form>
+                    <pre id="ping-results" class="results-box mt-4"></pre>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">Understanding Latency (Ping)</h3>
+                <p>Latency, commonly known as "ping," is the time it takes for a small packet of data to travel from your computer to a server on the internet and back. It's measured in milliseconds (ms), and it's a key indicator of your internet connection's responsiveness.</p>
+                
+                <h4 class="text-xl font-bold">Why is Low Latency Important?</h4>
+                <ul>
+                    <li><strong>Online Gaming:</strong> Low latency is critical for a smooth gaming experience. High latency causes "lag," where your actions are delayed, putting you at a disadvantage.</li>
+                    <li><strong>Video Conferencing:</strong> A low ping ensures that your video and audio are in sync, leading to clear, real-time conversations without awkward delays.</li>
+                    <li><strong>Web Browsing:</strong> While download speed determines how fast a page's content loads, latency affects how quickly the page starts to load in the first place. A lower ping makes websites feel snappier.</li>
+                </ul>
+
+                <h4 class="text-xl font-bold">How This Tool Works</h4>
+                <p>This tool does not perform a traditional ICMP ping, as that's not possible from a web browser. Instead, it measures latency by sending a small HTTP request to the server and timing how long it takes to get a response. This provides a good estimate of the round-trip time and is an excellent way to gauge the responsiveness of a web server from your specific location.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const pingForm = document.getElementById('ping-form');
+        if (!pingForm) return;
+        const pingHostInput = document.getElementById('ping-host');
+        const pingResultsBox = document.getElementById('ping-results');
+        const pingBtn = pingForm.querySelector('button');
+
+        pingForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const host = pingHostInput.value.trim();
+            if (!host) return;
+
+            pingBtn.disabled = true;
+            pingBtn.textContent = 'Pinging...';
+            pingResultsBox.textContent = `Pinging ${host} with 5 requests...\n\n`;
+
+            const latencies = [];
+            const pingCount = 5;
+            let successfulPings = 0;
+
+            for (let i = 0; i < pingCount; i++) {
+                try {
+                    const startTime = performance.now();
+                    // Use cache-busting query param to ensure a fresh request
+                    await fetch(`https://${host}/favicon.ico?t=${new Date().getTime()}`, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' });
+                    const endTime = performance.now();
+                    const latency = Math.round(endTime - startTime);
+                    latencies.push(latency);
+                    successfulPings++;
+                    pingResultsBox.textContent += `Reply from ${host}: time=${latency}ms\n`;
+                } catch (e) {
+                    pingResultsBox.textContent += `Request timed out for ${host}.\n`;
+                }
+            }
+
+            if (successfulPings > 0) {
+                const sum = latencies.reduce((a, b) => a + b, 0);
+                const avg = Math.round(sum / latencies.length);
+                const min = Math.min(...latencies);
+                const max = Math.max(...latencies);
+
+                pingResultsBox.textContent += `\n--- ${host} ping statistics ---\n`;
+                pingResultsBox.textContent += `${pingCount} packets transmitted, ${successfulPings} received, ${pingCount - successfulPings} lost.\n`;
+                pingResultsBox.textContent += `Approximate round trip times in milli-seconds:\n`;
+                pingResultsBox.textContent += `    Minimum = ${min}ms, Maximum = ${max}ms, Average = ${avg}ms\n`;
+            } else {
+                 pingResultsBox.textContent += `\n--- ${host} ping statistics ---\n`;
+                pingResultsBox.textContent += `${pingCount} packets transmitted, 0 received, ${pingCount} lost.\n`;
+                pingResultsBox.textContent += `Could not reach ${host}. The server may be down or blocking requests.`;
+            }
+
+            pingBtn.disabled = false;
+            pingBtn.textContent = 'Ping';
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device & Browser Info Checker - iNetTool</title>
+    <meta name="description" content="Instantly check your device and browser details, including IP address, operating system (OS), browser version, screen resolution, and user agent.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+  <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=AdZaXSVZ3fJR9Wht9J6BbO86_69E-j97r73FUKeXETMjjSVoVJPi_o2Gcrhbt_qT0qaRCfKBOwdQwwN72gJ7CVhPPuOB31TRZaGcFeWnsPfIw50EVckOkhLjdtK-IPpttCdYVgD9ZTc3k8p1xNXINojGPN2IwRb0EWzJ0_S3il-ah1rH-B1mGbp8e4X6_POuS4n1JM3VTu23Gva-FuCEBQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZkZXZpY2UtaW5mby5odG1s"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="device-info-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">🖥️ Device & Browser Info</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">View your IP address, OS, browser version, and more.</p>
+                </div>
+
+                <div class="fade-in">
+                    <table class="info-table">
+                        <tbody>
+                            <tr><th>IP Address</th><td id="ip-address" class="font-mono">Loading...</td></tr>
+                            <tr><th>Browser</th><td id="browser-info" class="font-mono">Loading...</td></tr>
+                            <tr><th>Operating System</th><td id="os-info" class="font-mono">Loading...</td></tr>
+                            <tr><th>Screen Resolution</th><td id="screen-res" class="font-mono">Loading...</td></tr>
+                            <tr><th>User Agent</th><td id="user-agent" class="font-mono">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">Understanding Your Device Information</h3>
+                <p>This tool provides a snapshot of the technical details your browser shares with every website you visit. Here's what each piece of information means:</p>
+                
+                <h5>IP Address</h5>
+                <p>Your IP (Internet Protocol) address is a unique identifier for your device on the internet. It's essential for sending and receiving data online, much like a mailing address for a letter. This tool shows your public IP address, which is the one visible to the public internet.</p>
+
+                <h5>Browser</h5>
+                <p>This shows the name and version number of the web browser you are currently using (e.g., Chrome 108, Firefox 107). Websites use this information to serve you a compatible version of their site.</p>
+
+                <h5>Operating System (OS)</h5>
+                <p>This identifies the operating system your device is running, such as Windows, macOS, Android, or iOS. This can help websites provide OS-specific instructions or downloads.</p>
+
+                <h5>Screen Resolution</h5>
+                <p>This is the number of distinct pixels in each dimension that can be displayed on your screen (e.g., 1920x1080). Web developers use this to optimize the layout and design of their sites for different screen sizes.</p>
+
+                <h5>User Agent</h5>
+                <p>The User Agent is a text string that your browser sends to websites. It contains a detailed summary of your technical setup, including your browser, version, and operating system. It's a key piece of information used for browser fingerprinting, which you can explore with our dedicated Browser Fingerprint tool.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const ipAddressEl = document.getElementById('ip-address');
+        const userAgentEl = document.getElementById('user-agent');
+        const browserInfoEl = document.getElementById('browser-info');
+        const osInfoEl = document.getElementById('os-info');
+        const screenResEl = document.getElementById('screen-res');
+
+        // Fetch Public IP
+        fetch('https://api64.ipify.org?format=json')
+            .then(response => response.ok ? response.json() : Promise.reject('IP fetch failed'))
+            .then(data => { if(ipAddressEl) ipAddressEl.textContent = data.ip; })
+            .catch(error => { if(ipAddressEl) ipAddressEl.textContent = 'Could not fetch IP'; });
+        
+        // Get Browser Info
+        const ua = navigator.userAgent;
+        if(userAgentEl) userAgentEl.textContent = ua;
+        
+        let browser = "Unknown";
+        if (ua.includes("Firefox")) browser = "Mozilla Firefox";
+        else if (ua.includes("SamsungBrowser")) browser = "Samsung Internet";
+        else if (ua.includes("Opera") || ua.includes("OPR")) browser = "Opera";
+        else if (ua.includes("Trident")) browser = "Microsoft Internet Explorer";
+        else if (ua.includes("Edg")) browser = "Microsoft Edge";
+        else if (ua.includes("Chrome")) browser = "Google Chrome";
+        else if (ua.includes("Safari")) browser = "Apple Safari";
+        const versionMatch = ua.match(/(?:Edg|Edge|Chrome|Firefox|Version|Opera|OPR|MSIE|Trident.*rv)\/([\d.]+)/);
+        if(browserInfoEl) browserInfoEl.textContent = `${browser} ${versionMatch ? versionMatch[1] : ""}`;
+
+        // Get OS Info
+        let os = "Unknown";
+        if (ua.includes("Win")) os = "Windows";
+        else if (ua.includes("Mac")) os = "macOS";
+        else if (ua.includes("Linux")) os = "Linux";
+        else if (ua.includes("Android")) os = "Android";
+        else if (ua.includes("like Mac")) os = "iOS";
+        if(osInfoEl) osInfoEl.textContent = os;
+
+        // Get Screen Resolution
+        if(screenResEl) screenResEl.textContent = `${window.screen.width}px x ${window.screen.height}px`;
+    });
+    </script>
+</body>
+</html>

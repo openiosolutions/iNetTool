@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS Lookup Tool - iNetTool</title>
+    <meta name="description" content="Perform a free DNS lookup for any domain. Check common DNS records like A, AAAA, CNAME, MX, and TXT instantly with our online tool.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+<!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=AdZaXSVZ3fJR9Wht9J6BbApFwB_bRzsj2Xio_QMtkT03NukVT2Cjz2PzAm8D4CzXTKY_90RNEXY5hLD_BJT6Qt6brUhBOd6o4GEPWQkwN3tjVuUZSpseThaI1j8Eo64omHPNrNwF44LdIxzpEA3ydx3J21BLDyZspJpPfuubanlwzmCHxn4ar8sgg79vBnOrzQZHggZx1B5yJZmvL3wg_Q" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZkbnMtbG9va3VwLmh0bWw"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="dns-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">🌐 DNS Lookup</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Enter a domain name to look up its DNS records.</p>
+                </div>
+
+                <div class="fade-in">
+                    <form id="dns-form" class="tool-form">
+                        <input type="text" id="dns-host" class="tool-input" placeholder="e.g., google.com" required>
+                        <button type="submit" class="btn">Lookup</button>
+                    </form>
+                    <pre id="dns-results" class="results-box mt-4"></pre>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">What is DNS?</h3>
+                <p>The Domain Name System (DNS) is the phonebook of the internet. Humans access information online through domain names, like `google.com`. Web browsers, however, interact through Internet Protocol (IP) addresses. DNS translates domain names to IP addresses so browsers can load internet resources.</p>
+                
+                <h4 class="text-xl font-bold">Common DNS Record Types</h4>
+                <p>A DNS lookup will show you various records associated with a domain. Here are some of the most common types:</p>
+                <ul>
+                    <li><strong>A Record:</strong> The "Address" record, which points a domain to an IPv4 address (e.g., `172.217.16.142`).</li>
+                    <li><strong>AAAA Record:</strong> Similar to an A record, but it points to a more modern IPv6 address.</li>
+                    <li><strong>CNAME Record:</strong> The "Canonical Name" record, which forwards one domain or subdomain to another domain. For example, `www.example.com` might point to `example.com`.</li>
+                    <li><strong>MX Record:</strong> The "Mail Exchange" record, which directs email to a mail server.</li>
+                    <li><strong>TXT Record:</strong> The "Text" record, which can hold arbitrary text. It's often used for verifying domain ownership, email security (SPF, DKIM), and other purposes.</li>
+                </ul>
+                <p>This tool uses a public DNS-over-HTTPS resolver to query these records, ensuring your lookup is private and secure.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dnsForm = document.getElementById('dns-form');
+        if (!dnsForm) return;
+        const dnsHostInput = document.getElementById('dns-host');
+        const dnsResultsBox = document.getElementById('dns-results');
+        dnsForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const host = dnsHostInput.value.trim();
+            if (!host) return;
+            dnsResultsBox.textContent = `Looking up DNS records for ${host}...`;
+            try {
+                const response = await fetch(`https://dns.google/resolve?name=${host}`);
+                if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
+                const data = await response.json();
+                if (data.Status !== 0 || !data.Answer) {
+                    dnsResultsBox.textContent = `No DNS records found for ${host}. (Status: ${data.Status})`;
+                    return;
+                }
+                let results = `DNS Records for ${host}:\n\nType\tTTL\tData\n----\t---\t----\n`;
+                data.Answer.forEach(record => {
+                    results += `${record.type}\t${record.TTL}\t${record.data}\n`;
+                });
+                dnsResultsBox.textContent = results;
+            } catch (e) {
+                dnsResultsBox.textContent = `Error: Could not perform DNS lookup for ${host}.\n\n${e.message}`;
+            }
+        });
+    });
+    </script>
+</body>
+</html>

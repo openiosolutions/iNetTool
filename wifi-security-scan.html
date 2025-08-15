@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wi-Fi Security Scan - iNetTool</title>
+    <meta name="description" content="Scan your Wi-Fi connection for common security risks like DNS leaks, WebRTC IP leaks, and captive portals with our free online tool.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+<!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=D1CXqgZuroisnRg0LUZxVQ4FFsFNDfHvHZka0iIJ2xnNPgPX4LN1cd7_IR2vaTir4lSbxEIeJ0O4QM_zpw96mWOpDixeCqHe6HTDTfDo1QbLTjFL2PFj9zKYxs7fAInlGyl9T6Ms7h9foAGg-z_iwp4139FhMAxDuto_Gc5FWvOtxYsp7ncJir5BqHMwBykgjIzcbu0l5qaHGMX67h8JgA" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZ3aWZpLXNlY3VyaXR5LXNjYW4uaHRtbA"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="wifi-scanner-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">🛡️ Wi-Fi Security Scan</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Running live browser-based checks to assess your connection's security.</p>
+                </div>
+
+                <div class="fade-in">
+                    <div id="scanner-results-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="scanner-card" id="https-card"><div class="scanner-card-header"><span class="scanner-icon"></span><h3>HTTPS Connection</h3></div><p class="scanner-card-content" id="https-status">Checking...</p></div>
+                        <div class="scanner-card" id="doh-card"><div class="scanner-card-header"><span class="scanner-icon"></span><h3>Secure DNS (DoH)</h3></div><p class="scanner-card-content" id="doh-status">Checking...</p></div>
+                        <div class="scanner-card scanner-card-full" id="ip-card"><div class="scanner-card-header"><span class="scanner-icon"></span><h3>Public IP Information</h3></div><p class="scanner-card-content" id="ip-info">Fetching...</p></div>
+                        <div class="scanner-card" id="webrtc-card"><div class="scanner-card-header"><span class="scanner-icon"></span><h3>WebRTC IP Leak</h3></div><p class="scanner-card-content" id="webrtc-status">Checking...</p></div>
+                        <div class="scanner-card" id="captive-portal-card"><div class="scanner-card-header"><span class="scanner-icon"></span><h3>Captive Portal</h3></div><p class="scanner-card-content" id="captive-portal-status">Checking...</p></div>
+                    </div>
+                    <div class="scanner-card scanner-card-full mt-4" id="summary-card">
+                        <div class="scanner-card-header"><h3>Overall Risk Assessment</h3></div>
+                        <div id="summary-content" class="text-center">
+                            <h2 id="risk-level" class="text-2xl font-bold">Calculating...</h2>
+                            <p id="risk-advice" class="text-gray-600 dark:text-gray-400">Please wait while the checks complete.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">Understanding Your Wi-Fi Security Scan</h3>
+                <p>Public Wi-Fi networks can be insecure, exposing your data to potential risks. This tool performs several client-side checks to assess the security of your current connection.</p>
+                
+                <h4 class="text-xl font-bold">What We Check For</h4>
+                <ul>
+                    <li><strong>HTTPS Connection:</strong> Checks if your connection to this website is encrypted. An unencrypted (HTTP) connection means your activity on this site could be monitored.</li>
+                    <li><strong>Secure DNS (DoH):</strong> Determines if your browser is using DNS-over-HTTPS, which encrypts your DNS queries. Unencrypted DNS can reveal which websites you are visiting to your network provider.</li>
+                    <li><strong>WebRTC IP Leak:</strong> WebRTC is a technology that can sometimes leak your real IP address, even when you are using a VPN. This test checks for such leaks.</li>
+                    <li><strong>Captive Portal:</strong> Detects if you are behind a "captive portal," which is a login page that often appears on public Wi-Fi networks (e.g., in hotels or airports). These networks can be less secure.</li>
+                    <li><strong>Public IP Information:</strong> Shows your public IP address and ISP. It also warns you if your IP appears to be from a known proxy or data center, which could indicate a misconfigured VPN.</li>
+                </ul>
+                <p>Based on these checks, the tool provides an overall risk assessment to help you make informed decisions about your online activities, especially on public networks.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const view = document.getElementById('wifi-scanner-app');
+        if (!view) return;
+
+        const elements = {
+            https: { icon: view.querySelector('#https-card .scanner-icon'), status: view.querySelector('#https-status') },
+            doh: { icon: view.querySelector('#doh-card .scanner-icon'), status: view.querySelector('#doh-status') },
+            ip: { icon: view.querySelector('#ip-card .scanner-icon'), status: view.querySelector('#ip-info') },
+            webrtc: { icon: view.querySelector('#webrtc-card .scanner-icon'), status: view.querySelector('#webrtc-status') },
+            captivePortal: { icon: view.querySelector('#captive-portal-card .scanner-icon'), status: view.querySelector('#captive-portal-status') },
+            summary: { level: view.querySelector('#risk-level'), advice: view.querySelector('#risk-advice') }
+        };
+        let riskScore = 0;
+
+        function checkHttpsStatus() {
+            if (window.location.protocol === 'https:') {
+                elements.https.icon.textContent = '✅';
+                elements.https.status.innerHTML = '<strong>Secure:</strong> Your connection to this website is encrypted.';
+            } else {
+                riskScore += 3;
+                elements.https.icon.textContent = '❌';
+                elements.https.status.innerHTML = '<strong>Insecure:</strong> Your connection to this site is not encrypted.';
+            }
+        }
+
+        async function checkDohStatus() {
+            try {
+                await fetch('https://dns.google/resolve?name=example.com');
+                elements.doh.icon.textContent = '✅';
+                elements.doh.status.innerHTML = '<strong>Secure:</strong> Your device appears to support DNS-over-HTTPS.';
+            } catch (error) {
+                riskScore += 1;
+                elements.doh.icon.textContent = '⚠️';
+                elements.doh.status.innerHTML = '<strong>Potentially Unencrypted:</strong> Your DNS queries might be visible.';
+            }
+        }
+
+        async function checkIpInfo() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                elements.ip.status.innerHTML = `<strong>IP:</strong> ${data.ip}<br><strong>ISP:</strong> ${data.org}<br><strong>Location:</strong> ${data.city}, ${data.country_name}`;
+                if (data.proxy || data.hosting) {
+                    riskScore += 2;
+                    elements.ip.icon.textContent = '⚠️';
+                    elements.ip.status.innerHTML += '<br><strong>Warning:</strong> Your IP appears to be from a proxy or data center.';
+                } else {
+                    elements.ip.icon.textContent = '✅';
+                }
+            } catch (error) {
+                riskScore += 1;
+                elements.ip.icon.textContent = '❌';
+                elements.ip.status.innerHTML = 'Could not fetch IP information.';
+            }
+        }
+
+        async function checkWebRtcLeak() {
+            return new Promise(resolve => {
+                 try {
+                    const pc = new RTCPeerConnection({ iceServers: [] });
+                    pc.createDataChannel('');
+                    pc.onicecandidate = (e) => {
+                        if (!e.candidate || !e.candidate.candidate) { pc.close(); resolve(false); return; }
+                        const ip = /([0-9]{1,3}(\.[0-9]{1,3}){3})/.exec(e.candidate.candidate)[1];
+                        if (ip.startsWith('192.168.') || ip.startsWith('10.') || ip.startsWith('172.')) { pc.close(); resolve(true); }
+                    };
+                    pc.createOffer().then(offer => pc.setLocalDescription(offer));
+                    setTimeout(() => { pc.close(); resolve(false); }, 1000);
+                } catch (error) { resolve(null); }
+            }).then(isLeaking => {
+                if (isLeaking === true) {
+                    riskScore += 2;
+                    elements.webrtc.icon.textContent = '❌';
+                    elements.webrtc.status.innerHTML = '<strong>Leak Detected:</strong> Your private IP address is visible.';
+                } else if (isLeaking === false) {
+                    elements.webrtc.icon.textContent = '✅';
+                    elements.webrtc.status.innerHTML = '<strong>Secure:</strong> No private IP address leak was detected.';
+                } else {
+                    elements.webrtc.icon.textContent = '⚠️';
+                    elements.webrtc.status.innerHTML = '<strong>Unknown:</strong> Could not perform the WebRTC test.';
+                }
+            });
+        }
+
+        async function checkCaptivePortal() {
+            try {
+                await fetch('http://neverssl.com/?' + Math.random(), { mode: 'no-cors' });
+                elements.captivePortal.icon.textContent = '✅';
+                elements.captivePortal.status.innerHTML = '<strong>OK:</strong> No obvious captive portal was detected.';
+            } catch (error) {
+                riskScore += 3;
+                elements.captivePortal.icon.textContent = '⚠️';
+                elements.captivePortal.status.innerHTML = '<strong>Potential Portal:</strong> You may be behind a login page.';
+            }
+        }
+
+        function assessOverallRisk() {
+            const summaryLevel = elements.summary.level;
+            const summaryAdvice = elements.summary.advice;
+            summaryLevel.classList.remove('status-good', 'status-warn', 'status-bad');
+            if (riskScore === 0) {
+                summaryLevel.textContent = 'Low Risk';
+                summaryLevel.classList.add('status-good');
+                summaryAdvice.textContent = 'Your connection appears secure. Always practice safe browsing.';
+            } else if (riskScore <= 3) {
+                summaryLevel.textContent = 'Medium Risk';
+                summaryLevel.classList.add('status-warn');
+                summaryAdvice.textContent = 'Some risks were detected. Avoid sensitive activities. Using a VPN is recommended.';
+            } else {
+                summaryLevel.textContent = 'High Risk';
+                summaryLevel.classList.add('status-bad');
+                summaryAdvice.textContent = 'Significant risks detected. Your connection is likely insecure. Use a trusted VPN immediately.';
+            }
+        }
+
+        async function runAllChecks() {
+            await Promise.all([
+                checkHttpsStatus(), checkDohStatus(), checkIpInfo(), checkWebRtcLeak(), checkCaptivePortal()
+            ]);
+            assessOverallRisk();
+        }
+
+        runAllChecks();
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Screen & File Share - iNetTool</title>
+    <meta name="description" content="Share your screen or send files directly and securely to another person with our peer-to-peer (P2P) tool. No servers, no uploads, completely private.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+  <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TPP8rVKt_-Bsn6_ZTg-DTCrGoIDL2Yh_kY99DOluZOcckM_DTl3iO44z_zoY5fMErkFVIt_tUMEfDj6U5CmYRSLQ-QAQOhXcTvqrel9GUZdHeczlgrZLbnXliI1Kpc6rNlEhnrUgHKvR2OrOD1MAJm4jA34qwM9uJvOIlNf75t_e-p_1AB2cGZRgSyT_D7SM_iEpq9HjHv8ItjhYO3ZKBQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZwMnAtZmlsZS1zaGFyZS5odG1s"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="screenshare-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">💻 P2P Screen & File Share</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Share your screen or send files directly to another person without a server. All data is end-to-end encrypted.</p>
+                </div>
+
+                <div class="fade-in">
+                    <div class="screenshare-container grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="screenshare-panel">
+                            <h3 class="text-xl font-bold mb-2">1. Host (Share your screen / Send File)</h3>
+                            <button id="start-share-btn" class="btn w-full">Start Sharing</button>
+                            <label for="offer-sdp" class="block text-sm font-medium mt-4">Step A: Send this code to the viewer</label>
+                            <textarea id="offer-sdp" class="screenshare-textarea w-full h-24 p-2 border rounded mt-1" readonly placeholder="Click 'Start Sharing' to generate an offer code."></textarea>
+                            <div class="copy-notification" id="offer-copy-msg"></div>
+                            <div class="qr-code-container text-center mt-2">
+                                <canvas id="offer-qr-code"></canvas>
+                            </div>
+                            <label for="answer-sdp-input" class="block text-sm font-medium mt-4">Step B: Paste the viewer's code here</label>
+                            <textarea id="answer-sdp-input" class="screenshare-textarea w-full h-24 p-2 border rounded mt-1" placeholder="Waiting for viewer's code..."></textarea>
+                            <button id="connect-btn" class="btn w-full mt-2">Connect</button>
+                            <hr class="my-6">
+                            <h4 class="font-bold">File Transfer</h4>
+                            <input type="file" id="host-file-input" class="mt-2">
+                            <button id="host-send-file-btn" class="btn w-full mt-2" disabled>Send File</button>
+                            <div id="host-file-status" class="file-status mt-2 text-sm"></div>
+                        </div>
+                        <div class="screenshare-panel">
+                            <h3 class="text-xl font-bold mb-2">2. Viewer (Receive a screen / File)</h3>
+                            <label for="offer-sdp-input-viewer" class="block text-sm font-medium mt-4">Step A: Paste the host's code here</label>
+                            <textarea id="offer-sdp-input-viewer" class="screenshare-textarea w-full h-24 p-2 border rounded mt-1" placeholder="Paste the host's offer code here."></textarea>
+                            <button id="create-answer-btn" class="btn w-full mt-2">Generate Answer Code</button>
+                            <label for="answer-sdp-output" class="block text-sm font-medium mt-4">Step B: Send this code back to the host</label>
+                            <textarea id="answer-sdp-output" class="screenshare-textarea w-full h-24 p-2 border rounded mt-1" readonly placeholder="Your answer code will appear here."></textarea>
+                            <div class="copy-notification" id="answer-copy-msg"></div>
+                            <div class="qr-code-container text-center mt-2">
+                                <canvas id="answer-qr-code"></canvas>
+                            </div>
+                            <hr class="my-6">
+                            <h4 class="font-bold">File Transfer</h4>
+                            <input type="file" id="viewer-file-input" class="mt-2">
+                            <button id="viewer-send-file-btn" class="btn w-full mt-2" disabled>Send File</button>
+                            <div id="viewer-file-status" class="file-status mt-2 text-sm"></div>
+                        </div>
+                    </div>
+                    <hr class="my-8">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Shared Screen</h3>
+                    <video id="remote-video" autoplay playsinline class="mt-4 w-full rounded-lg bg-black"></video>
+                    <button id="fullscreen-btn" class="btn mt-4">Full Screen</button>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">How Peer-to-Peer (P2P) Sharing Works</h3>
+                <p>Unlike traditional file sharing that uploads your data to a server, this tool uses a technology called **WebRTC** to create a direct, encrypted connection between two browsers. This is known as a Peer-to-Peer (P2P) connection.</p>
+                
+                <h4 class="text-xl font-bold">Key Benefits</h4>
+                <ul>
+                    <li><strong>Privacy & Security:</strong> Your screen share and files are end-to-end encrypted. They are never sent to or stored on a server, ensuring only you and the person you're connected to can see the data.</li>
+                    <li><strong>Speed:</strong> Because the data travels directly between you and the other person, transfer speeds can be much faster than uploading to a server and then having the other person download it.</li>
+                    <li><strong>No File Size Limits:</strong> Since there's no server involved, you are not limited by server-side file size restrictions. The only limit is what your browsers can handle.</li>
+                </ul>
+
+                <h4 class="text-xl font-bold">How to Use This Tool</h4>
+                <ol>
+                    <li><strong>The Host:</strong> The person who wants to share their screen or send a file clicks "Start Sharing". This generates an "Offer Code".</li>
+                    <li>The Host copies this code and sends it to the other person (the Viewer) through any messaging service.</li>
+                    <li><strong>The Viewer:</strong> The Viewer pastes the Offer Code into their "Viewer" panel and clicks "Create Answer". This generates an "Answer Code".</li>
+                    <li>The Viewer copies the Answer Code and sends it back to the Host.</li>
+                    <li>The Host pastes the Answer Code into their "Host" panel and clicks "Connect". A secure, direct connection is now established.</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- HOST ELEMENTS ---
+        const startBtn = document.getElementById('start-share-btn');
+        const offerSdpText = document.getElementById('offer-sdp');
+        const answerSdpInput = document.getElementById('answer-sdp-input');
+        const connectBtn = document.getElementById('connect-btn');
+        const hostFileInput = document.getElementById('host-file-input');
+        const hostSendFileBtn = document.getElementById('host-send-file-btn');
+        const hostFileStatus = document.getElementById('host-file-status');
+        const offerQrCanvas = document.getElementById('offer-qr-code');
+
+        // --- VIEWER ELEMENTS ---
+        const offerSdpInputViewer = document.getElementById('offer-sdp-input-viewer');
+        const createAnswerBtn = document.getElementById('create-answer-btn');
+        const answerSdpOutput = document.getElementById('answer-sdp-output');
+        const viewerFileStatus = document.getElementById('viewer-file-status');
+        const answerQrCanvas = document.getElementById('answer-qr-code');
+        const viewerFileInput = document.getElementById('viewer-file-input');
+        const viewerSendFileBtn = document.getElementById('viewer-send-file-btn');
+        
+        // --- SHARED ELEMENTS ---
+        const remoteVideo = document.getElementById('remote-video');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+        let hostPc, hostSendChannel, hostReceiveChannel;
+        let viewerPc, viewerReceiveChannel, viewerSendChannel;
+
+        const configuration = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
+
+        // --- GENERIC FILE HANDLING FUNCTIONS ---
+        function sendFile(fileInput, sendChannel, statusElement) {
+            const fileToSend = fileInput.files[0];
+            if (!fileToSend) {
+                statusElement.textContent = "Please select a file first.";
+                return;
+            }
+
+            const fileMeta = { name: fileToSend.name, size: fileToSend.size, type: fileToSend.type };
+            sendChannel.send(JSON.stringify(fileMeta));
+
+            const reader = new FileReader();
+            const chunkSize = 16384;
+            let offset = 0;
+
+            reader.onload = e => {
+                if (e.target.result.byteLength > 0) {
+                    sendChannel.send(e.target.result);
+                    offset += e.target.result.byteLength;
+                    statusElement.textContent = `Sending... ${Math.round((offset / fileToSend.size) * 100)}%`;
+                    if (offset < fileToSend.size) {
+                        readChunk();
+                    } else {
+                    statusElement.textContent = "File sent successfully!";
+                    }
+                }
+            };
+            
+            function readChunk() {
+                const slice = fileToSend.slice(offset, offset + chunkSize);
+                reader.readAsArrayBuffer(slice);
+            }
+            readChunk();
+        }
+
+        const receivingStates = new Map();
+
+        async function receiveFileChunk(event, statusElement) {
+            let state = receivingStates.get(this);
+            if (!state) {
+                state = {};
+                receivingStates.set(this, state);
+            }
+
+            if (typeof event.data === 'string') {
+                state.metadata = JSON.parse(event.data);
+                state.receivedBuffers = [];
+                state.receivedSize = 0;
+                statusElement.textContent = `Receiving: ${state.metadata.name}`;
+                return;
+            }
+
+            if (!state.metadata) return;
+            
+            let chunk = event.data;
+            if (chunk instanceof Blob) {
+                chunk = await chunk.arrayBuffer();
+            }
+
+            state.receivedBuffers.push(chunk);
+            state.receivedSize += chunk.byteLength;
+
+            const percent = state.metadata.size ? Math.floor((state.receivedSize / state.metadata.size) * 100) : 0;
+            statusElement.textContent = `Downloading... ${percent}%`;
+
+            if (state.receivedSize >= state.metadata.size) {
+                const blob = new Blob(state.receivedBuffers, { type: state.metadata.type });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = state.metadata.name;
+                a.textContent = `Download "${state.metadata.name}"`;
+                a.classList.add('btn', 'w-full', 'mt-2');
+                
+                statusElement.innerHTML = '';
+                statusElement.appendChild(a);
+                receivingStates.delete(this);
+            }
+        }
+
+
+        // --- SENDER (HOST) LOGIC ---
+        startBtn.addEventListener('click', async () => {
+            hostPc = new RTCPeerConnection(configuration);
+
+            try {
+                const stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
+                stream.getTracks().forEach(track => hostPc.addTrack(track, stream));
+            } catch (e) {
+                console.error("Error starting screen share:", e);
+                alert("Could not start screen sharing. Please grant permission.");
+            }
+
+            hostSendChannel = hostPc.createDataChannel('host-file-transfer');
+            hostSendChannel.binaryType = 'arraybuffer';
+            hostSendChannel.onopen = () => {
+                hostSendFileBtn.disabled = false;
+                hostFileStatus.textContent = "Ready to send files.";
+            };
+
+            hostPc.ondatachannel = event => {
+                hostReceiveChannel = event.channel;
+                hostReceiveChannel.binaryType = 'arraybuffer';
+                hostReceiveChannel.onmessage = (e) => receiveFileChunk.call(hostReceiveChannel, e, hostFileStatus);
+                hostReceiveChannel.onopen = () => {
+                    if (hostFileStatus.textContent === 'Ready to send files.') {
+                         hostFileStatus.textContent += ' Ready to receive files.';
+                    } else {
+                         hostFileStatus.textContent = 'Ready to receive files.';
+                    }
+                };
+            };
+
+            hostPc.onicecandidate = event => {
+                if (event.candidate === null) {
+                    const offer = JSON.stringify(hostPc.localDescription);
+                    offerSdpText.value = offer;
+                    QRCode.toCanvas(offerQrCanvas, offer, { width: 128 });
+                }
+            };
+
+            const offer = await hostPc.createOffer();
+            await hostPc.setLocalDescription(offer);
+        });
+
+        connectBtn.addEventListener('click', async () => {
+            if (!hostPc || !answerSdpInput.value) return;
+            const answer = JSON.parse(answerSdpInput.value);
+            await hostPc.setRemoteDescription(new RTCSessionDescription(answer));
+        });
+
+        hostSendFileBtn.addEventListener('click', () => {
+            sendFile(hostFileInput, hostSendChannel, hostFileStatus);
+        });
+
+
+        // --- RECEIVER (VIEWER) LOGIC ---
+        createAnswerBtn.addEventListener('click', async () => {
+            if (!offerSdpInputViewer.value) return;
+            viewerPc = new RTCPeerConnection(configuration);
+
+            viewerPc.ontrack = event => {
+                remoteVideo.srcObject = event.streams[0];
+            };
+            
+            viewerPc.ondatachannel = event => {
+                viewerReceiveChannel = event.channel;
+                viewerReceiveChannel.binaryType = 'arraybuffer';
+                viewerReceiveChannel.onmessage = (e) => receiveFileChunk.call(viewerReceiveChannel, e, viewerFileStatus);
+            };
+
+            viewerSendChannel = viewerPc.createDataChannel('viewer-file-transfer');
+            viewerSendChannel.binaryType = 'arraybuffer';
+            viewerSendChannel.onopen = () => {
+                viewerSendFileBtn.disabled = false;
+                viewerFileStatus.textContent = "Ready to send files.";
+            };
+
+            viewerPc.onicecandidate = event => {
+                if (event.candidate === null) {
+                    const answer = JSON.stringify(viewerPc.localDescription);
+                    answerSdpOutput.value = answer;
+                    QRCode.toCanvas(answerQrCanvas, answer, { width: 128 });
+                }
+            };
+
+            const offer = JSON.parse(offerSdpInputViewer.value);
+            await viewerPc.setRemoteDescription(new RTCSessionDescription(offer));
+            const answer = await viewerPc.createAnswer();
+            await viewerPc.setLocalDescription(answer);
+        });
+        
+        viewerSendFileBtn.addEventListener('click', () => {
+            sendFile(viewerFileInput, viewerSendChannel, viewerFileStatus);
+        });
+
+        // --- FULLSCREEN LOGIC ---
+        fullscreenBtn.addEventListener('click', () => {
+            if (remoteVideo.requestFullscreen) remoteVideo.requestFullscreen();
+            else if (remoteVideo.webkitRequestFullscreen) remoteVideo.webkitRequestFullscreen();
+        });
+    });
+    </script>
+</body>
+</html>

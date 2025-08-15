@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is My IP? (Public & Local) - iNetTool</title>
+    <meta name="description" content="Quickly find your public IPv4, public IPv6, and local IP address. Check your network type and latency. No server interaction.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+    <!-- Google Analytics / Ads -->
+<!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TPP8rVKt_-Bsn6_ZTg-DTItpc3ScdhFL89rF_Q6v_-8WP1TjoHoJBjMsiPxQfVsoIYdcSN-uxOAbgyhgnfCDqQsL_aUmOiARlii1Lh4BQUHNtKbYp5SZ7JHZW9VXpp-UB_XgYAMdSeF9rvwOk9YDUwQHVDiXVxtd4G0yJyasnQjHnlYh90G7ekO3AIkVegBCaL9MlX0W0qFQ1mLPq3p1SQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZuZXR3b3JrLWluZm8uaHRtbA"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .fade-in-delay-1 { animation-delay: 0.1s; }
+        .fade-in-delay-2 { animation-delay: 0.2s; }
+        .fade-in-delay-3 { animation-delay: 0.3s; }
+
+        .pulse-loading {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            50% {
+                opacity: .5;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="network-info-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">📡 Client Network Info</h2>
+                        <p class="text-gray-500 dark:text-gray-400 mt-1">Live network data detected by your browser.</p>
+                    </div>
+                    <button id="refresh-network-info" class="btn mt-4 sm:mt-0">Refresh</button>
+                </div>
+
+                <!-- Main Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Public IP Card (Larger) -->
+                    <div class="lg:col-span-2 p-6 bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-xl shadow-lg fade-in">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9" /></svg>
+                            <h3 class="text-xl font-bold">Public IP Addresses</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-sm font-semibold opacity-80">IPv4 Address</h4>
+                                <p class="text-xl font-mono break-all" id="net-public-ipv4"><span class="pulse-loading">Loading...</span></p>
+                            </div>
+                             <div>
+                                <h4 class="text-sm font-semibold opacity-80">IPv6 Address</h4>
+                                <p class="text-xl font-mono break-all" id="net-public-ipv6"><span class="pulse-loading">Loading...</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Connection Details Card -->
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg fade-in fade-in-delay-1">
+                        <div class="flex items-center mb-4">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Connection</h3>
+                        </div>
+                        <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Effective Type</h4>
+                                <p class="text-2xl font-mono" id="net-type"><span class="pulse-loading">...</span></p>
+                            </div>
+                             <div>
+                                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Est. Latency</h4>
+                                <p class="text-2xl font-mono" id="net-latency"><span class="pulse-loading">...</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Local IP Card -->
+                    <div class="lg:col-span-3 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg fade-in fade-in-delay-2">
+                        <div class="flex items-center mb-4">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">Local IP / Hostname</h3>
+                        </div>
+                        <p class="text-xl font-mono text-gray-700 dark:text-gray-300 break-all" id="net-local-ip"><span class="pulse-loading">Loading...</span></p>
+                    </div>
+                </div>
+                
+                <!-- Troubleshooting Section -->
+                <div class="mt-8 p-4 bg-yellow-50 dark:bg-gray-800 border border-yellow-200 dark:border-yellow-900 rounded-lg text-sm text-yellow-800 dark:text-yellow-200 fade-in fade-in-delay-3">
+                    <h4 class="font-bold">Troubleshooting Local IP</h4>
+                    <p class="mt-1">If your Local IP shows "N/A" or a ".local" address, your browser's privacy settings may be hiding it. To reveal your actual local IP, you can try the following:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li><strong>Chrome:</strong> Go to <code>chrome://flags/#enable-webrtc-hide-local-ips-with-mdns</code> and set it to <strong>Disabled</strong>.</li>
+                        <li><strong>Firefox:</strong> Go to <code>about:config</code>, search for <code>media.peerconnection.ice.obfuscate_host_addresses</code> and set it to <strong>false</strong>.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">Understanding Your Network Information</h3>
+                <p>This tool provides a snapshot of your network connection as seen by your browser. Here’s what each piece of information means:</p>
+                
+                <h5>Public IP Address (IPv4 & IPv6)</h5>
+                <p>Your public IP address is the unique address assigned to you by your Internet Service Provider (ISP). It's how websites and other servers on the internet identify your connection. You may have an older IPv4 address and a newer IPv6 address simultaneously.</p>
+
+                <h5>Local IP / Hostname</h5>
+                <p>Your local IP address is the address your router assigns to your device within your private home or office network. It's typically not visible to the public internet. Due to browser privacy features, this may sometimes appear as a randomized `.local` hostname instead of a traditional IP like `192.168.1.5`.</p>
+
+                <h5>Connection Details</h5>
+                <ul>
+                    <li><strong>Effective Type:</strong> An estimate of your connection speed (e.g., 4G, 3G) based on performance. Note: This feature is not supported by all browsers.</li>
+                    <li><strong>Est. Latency (Ping):</strong> An approximate measure of the time it takes for a data packet to travel from your browser to a server and back. Lower numbers mean a more responsive connection.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const view = document.getElementById('network-info-app');
+        if (!view) return;
+
+        const publicIpv4El = document.getElementById('net-public-ipv4');
+        const publicIpv6El = document.getElementById('net-public-ipv6');
+        const localIpEl = document.getElementById('net-local-ip');
+        const typeEl = document.getElementById('net-type');
+        const latencyEl = document.getElementById('net-latency');
+        const refreshBtn = document.getElementById('refresh-network-info');
+
+        const getPublicIps = async () => {
+            let ipv4 = 'Unavailable';
+            let ipv6 = 'Unavailable';
+            try {
+                const ipv4Res = await fetch('https://api.ipify.org?format=json');
+                if (ipv4Res.ok) ipv4 = (await ipv4Res.json()).ip;
+            } catch (e) { /* Ignore error */ }
+
+            try {
+                const ipv6Res = await fetch('https://api64.ipify.org?format=json');
+                if (ipv6Res.ok) {
+                    const dualStackIp = (await ipv6Res.json()).ip;
+                    if (dualStackIp !== ipv4) {
+                        ipv6 = dualStackIp;
+                    }
+                }
+            } catch (e) { /* Ignore error */ }
+            
+            publicIpv4El.textContent = ipv4;
+            publicIpv6El.textContent = ipv6;
+        };
+
+        const getLocalIp = () => {
+             return new Promise((resolve) => {
+                try {
+                    const pc = new RTCPeerConnection({ iceServers: [] });
+                    let ipResolved = false;
+
+                    pc.onicecandidate = (e) => {
+                        if (ipResolved || !e || !e.candidate || !e.candidate.candidate) return;
+
+                        const ipMatch = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(e.candidate.candidate);
+                        
+                        if (ipMatch) {
+                            ipResolved = true;
+                            resolve(ipMatch[1]);
+                            pc.close();
+                        }
+                    };
+                    
+                    pc.onicegatheringstatechange = () => {
+                        if (pc.iceGatheringState === 'complete' && !ipResolved) {
+                            ipResolved = true;
+                            resolve('N/A');
+                            pc.close();
+                        }
+                    };
+
+                    setTimeout(() => {
+                        if (!ipResolved) {
+                            ipResolved = true;
+                            resolve('N/A (Timeout)');
+                            pc.close();
+                        }
+                    }, 1500);
+
+                    pc.createDataChannel('');
+                    pc.createOffer()
+                      .then(offer => pc.setLocalDescription(offer))
+                      .catch(() => {
+                          if (!ipResolved) {
+                              ipResolved = true;
+                              resolve('Error');
+                              pc.close();
+                          }
+                      });
+                } catch (error) {
+                    resolve('Unsupported');
+                }
+            });
+        };
+
+        const getConnectionType = () => {
+            if (navigator.connection && navigator.connection.effectiveType) {
+                typeEl.textContent = navigator.connection.effectiveType.toUpperCase();
+            } else {
+                typeEl.textContent = 'Unsupported';
+            }
+        };
+
+        const measureLatency = async () => {
+            latencyEl.textContent = 'Testing...';
+            const startTime = performance.now();
+            try {
+                await fetch('https://www.google.com/favicon.ico', { mode: 'no-cors', cache: 'no-store' });
+                const endTime = performance.now();
+                const latency = Math.round(endTime - startTime);
+                latencyEl.textContent = `${latency} ms`;
+                if (latency < 100) {
+                    latencyEl.className = 'font-mono status-good';
+                } else if (latency < 300) {
+                    latencyEl.className = 'font-mono status-warn';
+                } else {
+                    latencyEl.className = 'font-mono status-bad';
+                }
+            } catch (error) {
+                latencyEl.textContent = 'Unavailable';
+                latencyEl.className = 'font-mono';
+            }
+        };
+
+        async function runAllChecks() {
+            publicIpv4El.textContent = 'Loading...';
+            publicIpv6El.textContent = 'Loading...';
+            localIpEl.textContent = 'Loading...';
+            typeEl.textContent = '...';
+            latencyEl.textContent = '...';
+            latencyEl.className = 'font-mono';
+            
+            await Promise.all([
+                getPublicIps(),
+                getLocalIp().then(ip => { localIpEl.textContent = ip; }),
+                getConnectionType(),
+                measureLatency()
+            ]);
+        }
+
+        runAllChecks();
+        refreshBtn.addEventListener('click', runAllChecks);
+    });
+    </script>
+</body>
+</html>

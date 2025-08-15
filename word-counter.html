@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word and Character Counter - iNetTool</title>
+    <meta name="description" content="A free online tool to count words, characters, sentences, and paragraphs in your text. Perfect for writers, students, and social media managers.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+    <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=D1CXqgZuroisnRg0LUZxVbOdOSbW1xfS-MxNpCQO5kTuGyEoT-T4LkLabwy-HubmbHrRPtJv3cd64t7MV_OIJJAHYNOheYJmIq_UDPTmj7N_WT7Y6qqNhqZUAKnYfMvDJN5UUdpwglr1U8WOViti0uJftnxRVqyzv8QmNqWCGRctFzAaSlglO2Pe6b3tSUmBBM3-qrBCgL1vrVbAq5Bpmw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZ3b3JkLWNvdW50ZXIuaHRtbA"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="word-counter-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">✍️ Character & Word Counter</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Paste your text below to get a real-time analysis.</p>
+                </div>
+
+                <div class="fade-in">
+                    <textarea id="word-counter-input" class="w-full h-48 p-3 tool-input" placeholder="Start typing or paste your text here..."></textarea>
+                    <div class="counter-stats mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                            <div class="text-sm font-semibold text-gray-500 dark:text-gray-400">Characters</div>
+                            <div id="char-count" class="text-2xl font-bold text-gray-800 dark:text-white">0</div>
+                        </div>
+                        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                            <div class="text-sm font-semibold text-gray-500 dark:text-gray-400">Words</div>
+                            <div id="word-count" class="text-2xl font-bold text-gray-800 dark:text-white">0</div>
+                        </div>
+                        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                            <div class="text-sm font-semibold text-gray-500 dark:text-gray-400">Sentences</div>
+                            <div id="sentence-count" class="text-2xl font-bold text-gray-800 dark:text-white">0</div>
+                        </div>
+                        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                            <div class="text-sm font-semibold text-gray-500 dark:text-gray-400">Paragraphs</div>
+                            <div id="paragraph-count" class="text-2xl font-bold text-gray-800 dark:text-white">0</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">Why is a Word Counter Useful?</h3>
+                <p>Whether you're a student, a professional writer, a social media manager, or just curious, counting the words and characters in your text is often essential. This tool provides instant and accurate counts to help you meet specific requirements and improve your writing.</p>
+                <ul>
+                    <li><strong>Academic Essays:</strong> Most essays and academic papers have strict word count limits. This tool helps you stay within the required range.</li>
+                    <li><strong>Social Media:</strong> Platforms like Twitter have tight character limits. Use this tool to craft the perfect post without having to edit it multiple times.</li>
+                    <li><strong>SEO (Search Engine Optimization):</strong> Content length can be a factor in search engine rankings. Blog posts and articles often need to meet a minimum word count to be considered comprehensive.</li>
+                    <li><strong>Professional Writing:</strong> Editors, translators, and copywriters are often paid by the word. This tool provides a quick way to estimate the length of a document.</li>
+                </ul>
+
+                <h4 class="text-xl font-bold">How It Works</h4>
+                <p>This tool analyzes your text in real-time directly in your browser. It doesn't send your text to a server, ensuring your work remains completely private. It calculates:</p>
+                <ul>
+                    <li><strong>Characters:</strong> A count of all characters, including spaces.</li>
+                    <li><strong>Words:</strong> A count of all word blocks separated by spaces.</li>
+                    <li><strong>Sentences:</strong> A count based on the presence of punctuation like periods, question marks, and exclamation points.</li>
+                    <li><strong>Paragraphs:</strong> A count of text blocks separated by line breaks.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const view = document.getElementById('word-counter-app');
+        if (!view) return;
+
+        const input = view.querySelector('#word-counter-input');
+        const charCountEl = view.querySelector('#char-count');
+        const wordCountEl = view.querySelector('#word-count');
+        const sentenceCountEl = view.querySelector('#sentence-count');
+        const paragraphCountEl = view.querySelector('#paragraph-count');
+
+        input.addEventListener('input', () => {
+            const text = input.value;
+
+            // Character count
+            charCountEl.textContent = text.length;
+
+            // Word count
+            const words = text.match(/\b\w+\b/g) || [];
+            wordCountEl.textContent = words.length;
+
+            // Sentence count
+            const sentences = text.match(/[^.!?]+[.!?]+/g) || [];
+            sentenceCountEl.textContent = sentences.length;
+
+            // Paragraph count
+            const paragraphs = text.split(/\n+/).filter(p => p.trim().length > 0);
+            paragraphCountEl.textContent = paragraphs.length;
+        });
+    });
+    </script>
+</body>
+</html>

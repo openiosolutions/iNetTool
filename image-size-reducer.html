@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Size Reducer - iNetTool</title>
+    <meta name="description" content="Compress and reduce the file size of your JPEG, PNG, and WebP images for free. Our online image optimizer works in your browser to protect your privacy.">
+    <link rel="icon" href="inettoolfv.png" type="image/png">
+    
+    <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=yE3pPeRC5e3wMjEQvO8RpAZykpUuHYJKS_GeH5uwhryenD5Y17TyeLU9yEus7UOdE9nwI4ZWEExqJINuhTIhxE2JHguCvkS0ucKWkBeEIzhYiq4VEWc_pstUPfdrUPDcbzgAvmT6Km7bI5AYte6AXM9180LciktT1G84_BdYuorvUv2ZS0eWm3u7lhxg8GtJ2TKqDHitQmizEK8c5_Kqrg" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9ldTA0Lm1hZmlhc2VydmVyLmNvbToyMDgzL2Nwc2Vzczk0Njc3ODMwMzEvZG93bmxvYWQ_c2tpcGVuY29kZT0xJmZpbGU9JTJmaG9tZSUyZmluZXR0b29sJTJmcHVibGljX2h0bWwlMmZpbWFnZS1zaXplLXJlZHVjZXIuaHRtbA"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ4BTDPBP1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HJ4BTDPBP1');
+</script>
+<meta name="google-site-verification" content="8nygsh7Y5Zu8Gk62_8g5NHmm-avtwuNQnCXNqfil-mY" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KQVR6F2N');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662515638176627"
+     crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900" oncontextmenu="return false;">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQVR6F2N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <main class="main-content">
+        <a href="index.html" class="back-btn mb-4 inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">&larr; Back to All Tools</a>
+        <div id="image-reducer-app">
+            <section class="tool-section border-0 shadow-lg">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-blue-600 dark:text-blue-400">🖼️ Image Size Reducer</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Upload an image to compress it. Adjust the quality slider for the best result.</p>
+                </div>
+
+                <div class="fade-in">
+                    <input type="file" id="image-reducer-input" accept="image/png, image/jpeg, image/webp" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 my-4"/>
+                    <div class="reducer-controls">
+                        <label for="quality-slider" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Quality: <span id="quality-value">75</span>%</label>
+                        <input id="quality-slider" type="range" min="1" max="100" value="75" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+                    </div>
+                    <div class="reducer-preview-container mt-4">
+                        <img id="compressed-preview" src="" alt="Compressed Image Preview">
+                        <p id="compressed-size" class="font-mono"></p>
+                    </div>
+                    <a id="download-btn" class="btn mt-4 w-full" style="display: none;">Download Compressed Image</a>
+                    <p id="reducer-error" class="text-red-500 mt-2"></p>
+                </div>
+            </section>
+
+            <section class="tool-section border-0 shadow-lg mt-8 prose dark:prose-invert max-w-none">
+                <h3 class="text-2xl font-bold">Why Compress Images?</h3>
+                <p>Large image files can significantly slow down your website's loading speed. By compressing your images, you can reduce their file size without a noticeable loss in quality, leading to several key benefits:</p>
+                <ul>
+                    <li><strong>Faster Website Speed:</strong> Smaller images load faster, improving the user experience for your visitors.</li>
+                    <li><strong>Better SEO Rankings:</strong> Search engines like Google favor faster websites, so optimizing your images can help your site rank higher.</li>
+                    <li><strong>Saves Bandwidth:</strong> Smaller files consume less bandwidth, which is beneficial for both your server and for users on mobile data plans.</li>
+                </ul>
+
+                <h4 class="text-xl font-bold">How This Tool Works</h4>
+                <p>This image compressor is a client-side tool, which means it works entirely within your web browser. When you upload an image, it is not sent to a server. Instead, your browser's own processing power is used to compress the image. This has two major advantages:</p>
+                <ol>
+                    <li><strong>Privacy:</strong> Your images are never uploaded to a server, ensuring your data remains private and secure on your own computer.</li>
+                    <li><strong>Speed:</strong> Since there are no uploads or downloads from a server, the compression process is incredibly fast.</li>
+                </ol>
+                <p>You can adjust the quality slider to find the perfect balance between file size and image quality for your needs.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const view = document.getElementById('image-reducer-app');
+        if (!view) return;
+
+        const input = view.querySelector('#image-reducer-input');
+        const qualitySlider = view.querySelector('#quality-slider');
+        const qualityValue = view.querySelector('#quality-value');
+        const preview = view.querySelector('#compressed-preview');
+        const sizeInfo = view.querySelector('#compressed-size');
+        const downloadBtn = view.querySelector('#download-btn');
+        const errorEl = view.querySelector('#reducer-error');
+        
+        let originalImage = null;
+        let originalFileName = '';
+
+        const compressAndDisplayImage = () => {
+            if (!originalImage) return;
+
+            const quality = parseInt(qualitySlider.value, 10);
+            qualityValue.textContent = quality;
+
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = originalImage.width;
+            canvas.height = originalImage.height;
+            ctx.drawImage(originalImage, 0, 0);
+
+            canvas.toBlob((blob) => {
+                const dataUrl = URL.createObjectURL(blob);
+                preview.src = dataUrl;
+                sizeInfo.textContent = `New Size: ${(blob.size / 1024).toFixed(2)} KB`;
+                downloadBtn.href = dataUrl;
+                downloadBtn.download = `compressed-${originalFileName}`;
+                downloadBtn.style.display = 'inline-block';
+            }, 'image/jpeg', quality / 100);
+        };
+
+        input.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            errorEl.textContent = '';
+            if (!file || !file.type.startsWith('image/')) {
+                errorEl.textContent = "Please select a valid image file.";
+                return;
+            }
+            
+            originalFileName = file.name;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                originalImage = new Image();
+                originalImage.onload = () => {
+                    compressAndDisplayImage();
+                };
+                originalImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        qualitySlider.addEventListener('input', compressAndDisplayImage);
+    });
+    </script>
+</body>
+</html>
